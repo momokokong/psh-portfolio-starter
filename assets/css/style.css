@@ -1,0 +1,138 @@
+:root {
+  --borderColor: #14213D;
+  --highlight: #FCA311;
+  --textColor: #E5E5E5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  color: var(--textColor);
+  background-color: black;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 4vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  /* border-bottom: 25px solid var(--borderColor); */
+  width: 100vw;
+  /* height: 15vh; */
+  background-color: black;
+  color: var(--textColor);
+}
+
+h1 {
+  background-color: var(--borderColor);
+  padding-left: 4vw;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  list-style: none;
+}
+
+nav li a {
+  font-size: 26px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+blockquote {
+  padding-right: 4vw;
+  margin: 0;
+  height: fit-content;
+  border-bottom: 25px solid var(--borderColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:stretch;
+  text-align: end;
+}
+
+/* blockquote * {
+  float: right;
+}  */
+
+blockquote p {
+  /* text-align: center; */
+  font-size: 150%;
+}
+
+blockquote p::before {
+  content: '\201C';
+}
+
+blockquote p::after {
+  content: '\201D';
+}
+  
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding-right: 4vw;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  margin: 2% 0;
+}
+
+.card aside {
+  width: 25%;
+  border-right: 10px solid var(--borderColor);
+  text-align: right;
+  padding-right: 1vw;
+}
+
+h2 {
+  font-size: 72px;
+}
+
+.card article {
+  width: 75%;
+  padding-left: 2vw;
+  /* padding-right: 8vw; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#work-card img {
+    width: 48%;
+    margin: 1vh 0;
+    border: 5px solid var(--highlight);
+}
+  
+#work-card img:first-child {
+  width: 100%;
+}
+
+/* #contact-me-card {
+  font-size: 18px;
+} */
+#contact-me-card article {
+  font-size: 28px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+
+
+
+
