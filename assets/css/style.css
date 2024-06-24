@@ -163,7 +163,15 @@ h3 {
   align-items: center;
 }
 
-
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  .card aside {
+    border-right: 0;
+    border-bottom: 10px solid var(--borderColor);
+  }
+}
 
 
 
