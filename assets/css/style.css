@@ -1,5 +1,5 @@
 :root {
-  --borderColor: #14213D;
+  --highlightText: #14213D;
   --highlight: #FCA311;
   --textColor: #E5E5E5;
 }
@@ -11,10 +11,12 @@
   line-height: 1;
   color: var(--textColor);
   background-color: black;
+  font-family: "Roboto Slab", "Open Sans", 'Times New Roman';
 }
 
 header {
   display: flex;
+  /* flex: 1 1 auto; */
   justify-content: space-between;
   align-items: center;
   padding-right: 4vw;
@@ -26,15 +28,17 @@ header {
 }
 
 h1 {
-  background-color: var(--borderColor);
+  background-color: var(--highlight);
   padding-left: 4vw;
   padding-top: 0.5vw;
   padding-bottom: 0.5vw;
   font-size: 72px;
+  color: var(--highlightText);
 }
 
 nav ul {
   display: flex;
+  /* flex: 1 1 auto; */
   justify-content: space-between;
   min-width: 300px;
   list-style: none;
@@ -50,8 +54,9 @@ blockquote {
   padding-right: 4vw;
   margin: 0;
   height: fit-content;
-  border-bottom: 10px solid var(--borderColor);
+  border-bottom: 10px solid var(--highlight);
   display: flex;
+  /* flex: 1 1 auto; */
   flex-direction: row;
   justify-content: flex-end;
   align-items:stretch;
@@ -59,7 +64,8 @@ blockquote {
 }
 
 blockquote * {
-  background-color: var(--borderColor);
+  background-color: var(--highlight);
+  color: var(--highlightText);
   width: fit-content;
   padding: 5px;
 }
@@ -80,19 +86,21 @@ blockquote h2::after {
 
 main {
   display: flex;
+  /* flex: 1 1 auto; */
   flex-direction: column;
   padding-right: 4vw;
 }
 
 .card {
   display: flex;
+  /* flex: 1 1 auto; */
   flex-direction: row;
   margin: 1% 0;
 }
 
 .card aside {
   width: 25%;
-  border-right: 10px solid var(--borderColor);
+  border-right: 10px solid var(--highlight);
   text-align: right;
   padding-right: 1vw;
 }
@@ -105,6 +113,7 @@ main h2 {
   width: 75%;
   padding-left: 2vw;
   display: flex;
+  /* flex: 1 1 auto; */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -137,26 +146,25 @@ main h2 {
   bottom: 20px;
   left: 0;
   background-color: var(--highlight);
-  color: var(--textColor);
   width: fit-content;
   height: fit-content;
   padding: 10px;
   font-size: 150%;
-  color: var(--borderColor);
+  color: var(--highlightText);
 }
 
 h3 {
   font-size: 250%;
   background-color: var(--highlight);
-  color: var(--textColor);
   line-height: 1.25em;
-  color: var(--borderColor);
+  color: var(--highlightText);
   font-weight: bold;
 }
 
 #contact-me-card article {
   font-size: 28px;
   display: flex;
+  /* flex: 1 1 auto; */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -165,11 +173,26 @@ h3 {
 
 @media screen and (max-width: 768px) {
   main {
+    padding-right: 2vw;
+    padding-left: 2vw;
+  }
+  .card {
     flex-direction: column;
+    min-width: none;
+    border-bottom: 10px solid var(--highlight);
   }
   .card aside {
+    width: 100%;
     border-right: 0;
-    border-bottom: 10px solid var(--borderColor);
+    text-align: left;
+    padding-left: 2vw;
+  }
+  .card article {
+    width: 100%;
+    padding-bottom: 5px;
+  }
+  #contact-me-card article {
+    justify-content: space-between;
   }
 }
 
