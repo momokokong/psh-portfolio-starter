@@ -20,9 +20,7 @@ header {
   padding-right: 4vw;
   padding-top: 1vw;
   padding-bottom: 1vw;
-  /* border-bottom: 25px solid var(--borderColor); */
   width: 100vw;
-  /* height: 15vh; */
   background-color: black;
   color: var(--textColor);
 }
@@ -30,6 +28,9 @@ header {
 h1 {
   background-color: var(--borderColor);
   padding-left: 4vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  font-size: 72px;
 }
 
 nav ul {
@@ -49,28 +50,30 @@ blockquote {
   padding-right: 4vw;
   margin: 0;
   height: fit-content;
-  border-bottom: 25px solid var(--borderColor);
+  border-bottom: 10px solid var(--borderColor);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items:stretch;
   text-align: end;
 }
 
-/* blockquote * {
-  float: right;
-}  */
-
-blockquote p {
-  /* text-align: center; */
-  font-size: 150%;
+blockquote * {
+  background-color: var(--borderColor);
+  width: fit-content;
+  padding: 5px;
 }
 
-blockquote p::before {
+blockquote h2 {
+  font-size: 200%;
+  line-height: 1.2em;
+}
+
+blockquote h2::before {
   content: '\201C';
 }
 
-blockquote p::after {
+blockquote h2::after {
   content: '\201D';
 }
   
@@ -84,7 +87,7 @@ main {
 .card {
   display: flex;
   flex-direction: row;
-  margin: 2% 0;
+  margin: 1% 0;
 }
 
 .card aside {
@@ -94,14 +97,13 @@ main {
   padding-right: 1vw;
 }
 
-h2 {
+main h2 {
   font-size: 72px;
 }
 
 .card article {
   width: 75%;
   padding-left: 2vw;
-  /* padding-right: 8vw; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -109,19 +111,49 @@ h2 {
   align-items: center;
 }
 
-#work-card img {
-    width: 48%;
-    margin: 1vh 0;
-    border: 5px solid var(--highlight);
+.work-img-card {
+  position: relative;
+  width: 48%;
+  margin: 1vh 0;
+  border: 5px solid var(--highlight);
 }
-  
-#work-card img:first-child {
+
+.work-img-card:first-child {
   width: 100%;
 }
 
-/* #contact-me-card {
-  font-size: 18px;
-} */
+.work-img-card img {
+  width: 100%;
+  opacity: 0.5;
+  transition: opacity 1s;
+}
+
+.work-img-card img:hover {
+  opacity: 1;
+}
+  
+.work-img-card > figcaption {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  background-color: var(--highlight);
+  color: var(--textColor);
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  font-size: 150%;
+  color: var(--borderColor);
+}
+
+h3 {
+  font-size: 250%;
+  background-color: var(--highlight);
+  color: var(--textColor);
+  line-height: 1.25em;
+  color: var(--borderColor);
+  font-weight: bold;
+}
+
 #contact-me-card article {
   font-size: 28px;
   display: flex;
