@@ -1,9 +1,11 @@
+/* Set some variables as the common colors of the page */
 :root {
   --highlightText: #14213D;
   --highlight: #FCA311;
   --textColor: #E5E5E5;
 }
 
+/* Reset some basics and set up some global attributes and prep the page display size */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,11 +14,15 @@
   color: var(--textColor);
   background-color: black;
   font-family: "Roboto Slab", "Open Sans", 'Times New Roman';
+  font-size: 18px;
 }
 
+/* 
+The upcoming section is to style the header bar including the title and the nav bar starting here
+Goal is to have a big header on the top left and nav bar on the top right which are spread out in the same box
+*/
 header {
   display: flex;
-  /* flex: 1 1 auto; */
   justify-content: space-between;
   align-items: center;
   padding-right: 4vw;
@@ -24,7 +30,6 @@ header {
   padding-bottom: 1vw;
   width: 100vw;
   background-color: black;
-  color: var(--textColor);
 }
 
 h1 {
@@ -32,68 +37,71 @@ h1 {
   padding-left: 4vw;
   padding-top: 0.5vw;
   padding-bottom: 0.5vw;
-  font-size: 72px;
+  font-size: 3.5rem;
   color: var(--highlightText);
 }
 
 nav ul {
   display: flex;
-  /* flex: 1 1 auto; */
   justify-content: space-between;
   min-width: 300px;
   list-style: none;
 }
 
 nav li a {
-  font-size: 26px;
+  font-size: 1.4rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
+/* 
+Starting here is to style the blockquote container which follows the header.  The quote is positioned on the right. 
+Background image is lifted a bit to show the eyes
+*/
 blockquote {
   padding-right: 4vw;
   margin: 0;
   height: fit-content;
   border-bottom: 10px solid var(--highlight);
   display: flex;
-  /* flex: 1 1 auto; */
   flex-direction: row;
   justify-content: flex-end;
   align-items:stretch;
   text-align: end;
 }
 
+blockquote section {
+  background-image: url(../image/Ron_burgundy.jpg);
+  background-position: 0 -200px;
+}
+
 blockquote * {
-  background-color: var(--highlight);
-  color: var(--highlightText);
+  background-color: transparent;
   width: fit-content;
   padding: 5px;
 }
 
 blockquote h2 {
-  font-size: 200%;
-  line-height: 1.2em;
+  font-size: 1.8rem;
+  line-height: 1.2rem;
 }
 
-blockquote h2::before {
-  content: '\201C';
-}
-
-blockquote h2::after {
-  content: '\201D';
-}
-  
-
+/* 
+Starting to style the main section that houses the infomation cards of about me, work, and contact me.
+On a desktop mode, each card is stacked on each other therefore the flex-direction is column. 
+*/
 main {
   display: flex;
-  /* flex: 1 1 auto; */
   flex-direction: column;
   padding-right: 4vw;
 }
 
+/* 
+Starting to style the card which houses the card header(aside) and the card info(article)
+On a destop mode, the content of the card should go horizontally there for flex-direction:row. 
+*/
 .card {
   display: flex;
-  /* flex: 1 1 auto; */
   flex-direction: row;
   margin: 1% 0;
 }
@@ -105,36 +113,44 @@ main {
   padding-right: 1vw;
 }
 
-main h2 {
-  font-size: 72px;
+.card aside h2 {
+  font-size: 2.5rem;
 }
 
 .card article {
   width: 75%;
   padding-left: 2vw;
   display: flex;
-  /* flex: 1 1 auto; */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 
+/*
+In the work section, each img(.work-img-card) represents a project and has hover opacity effect.
+Each project has a short description(figcaption) that float over on the bottom left of the img.  
+*/
 .work-img-card {
   position: relative;
   width: 48%;
+  height: 200px;
+  overflow: hidden;
   margin: 1vh 0;
   border: 5px solid var(--highlight);
+  transition: width 0.2s;
 }
 
 .work-img-card:first-child {
   width: 100%;
+  height: 50vh;
 }
 
 .work-img-card img {
   width: 100%;
   opacity: 0.5;
   transition: opacity 1s;
+  object-fit: cover;
 }
 
 .work-img-card img:hover {
@@ -149,29 +165,56 @@ main h2 {
   width: fit-content;
   height: fit-content;
   padding: 10px;
-  font-size: 150%;
+  font-size: 1rem;
   color: var(--highlightText);
 }
 
 h3 {
-  font-size: 250%;
+  font-size: 2rem;
   background-color: var(--highlight);
-  line-height: 1.25em;
   color: var(--highlightText);
   font-weight: bold;
 }
 
+/* This section styles the contact me section where the links should spread out. */
 #contact-me-card article {
-  font-size: 28px;
   display: flex;
-  /* flex: 1 1 auto; */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
 }
 
+#contact-me-card article a {
+  font-size: 2rem;
+}
+/*
+Starting here is to move the reading flow of the page to vertical reading flow when screen width is < 768px.
+Therefore whereever flex-direction was row, should become column and adjust the border and placement of items accordingly
+Based font-size would use 16px and the rest would shrink a bit by using rem as the unit
+*/
 @media screen and (max-width: 768px) {
+  * {
+    font-size: 16px;
+  }
+  header {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  header nav {
+    width: 100%;
+  }
+  header nav ul {
+    margin-top: 0.5vh;
+    justify-content: space-evenly;
+  }
+  blockquote {
+    justify-content: flex-start;
+  }
+  blockquote section {
+    padding-left: 4vw;
+  }
   main {
     padding-right: 2vw;
     padding-left: 2vw;
@@ -190,6 +233,12 @@ h3 {
   .card article {
     width: 100%;
     padding-bottom: 5px;
+  }
+  .work-img-card{
+    width: 100%;
+  }
+  .work-img-card:first-child {
+    height: fit-content;
   }
   #contact-me-card article {
     justify-content: space-between;
