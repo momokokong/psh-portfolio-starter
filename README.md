@@ -14,7 +14,9 @@ N/A
 open https://momokokong.github.io/psh-portfolio-starter/ directly from a browser.  It has layouts for desktop/mobile(<768px width>).
 
 ## Screenshot:
+Desktop view:
 ![Desktop View](./assets/screenshot/desktop-view.png)
+Mobile view:
 ![Mobile View](./assets/screenshot/mobile-view.png)
 
 ## Contributing:
